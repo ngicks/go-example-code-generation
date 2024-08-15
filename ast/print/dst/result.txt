@@ -1,0 +1,968 @@
+     0  *dst.File {
+     1  .  Name: *dst.Ident {
+     2  .  .  Name: "target"
+     3  .  .  Path: ""
+     4  .  .  Decs: dst.IdentDecorations {
+     5  .  .  .  NodeDecs: dst.NodeDecs {
+     6  .  .  .  .  Before: None
+     7  .  .  .  .  After: None
+     8  .  .  .  }
+     9  .  .  }
+    10  .  }
+    11  .  Decls: []dst.Decl (len = 6) {
+    12  .  .  0: *dst.GenDecl {
+    13  .  .  .  Tok: import
+    14  .  .  .  Lparen: false
+    15  .  .  .  Specs: []dst.Spec (len = 1) {
+    16  .  .  .  .  0: *dst.ImportSpec {
+    17  .  .  .  .  .  Path: *dst.BasicLit {
+    18  .  .  .  .  .  .  Kind: STRING
+    19  .  .  .  .  .  .  Value: "\"fmt\""
+    20  .  .  .  .  .  .  Decs: dst.BasicLitDecorations {
+    21  .  .  .  .  .  .  .  NodeDecs: dst.NodeDecs {
+    22  .  .  .  .  .  .  .  .  Before: None
+    23  .  .  .  .  .  .  .  .  After: None
+    24  .  .  .  .  .  .  .  }
+    25  .  .  .  .  .  .  }
+    26  .  .  .  .  .  }
+    27  .  .  .  .  .  Decs: dst.ImportSpecDecorations {
+    28  .  .  .  .  .  .  NodeDecs: dst.NodeDecs {
+    29  .  .  .  .  .  .  .  Before: None
+    30  .  .  .  .  .  .  .  After: EmptyLine
+    31  .  .  .  .  .  .  }
+    32  .  .  .  .  .  }
+    33  .  .  .  .  }
+    34  .  .  .  }
+    35  .  .  .  Rparen: false
+    36  .  .  .  Decs: dst.GenDeclDecorations {
+    37  .  .  .  .  NodeDecs: dst.NodeDecs {
+    38  .  .  .  .  .  Before: EmptyLine
+    39  .  .  .  .  .  After: None
+    40  .  .  .  .  }
+    41  .  .  .  }
+    42  .  .  }
+    43  .  .  1: *dst.GenDecl {
+    44  .  .  .  Tok: type
+    45  .  .  .  Lparen: false
+    46  .  .  .  Specs: []dst.Spec (len = 1) {
+    47  .  .  .  .  0: *dst.TypeSpec {
+    48  .  .  .  .  .  Name: *dst.Ident {
+    49  .  .  .  .  .  .  Name: "Foo"
+    50  .  .  .  .  .  .  Obj: *dst.Object {
+    51  .  .  .  .  .  .  .  Kind: type
+    52  .  .  .  .  .  .  .  Name: "Foo"
+    53  .  .  .  .  .  .  .  Decl: *(obj @ 47)
+    54  .  .  .  .  .  .  }
+    55  .  .  .  .  .  .  Path: ""
+    56  .  .  .  .  .  .  Decs: dst.IdentDecorations {
+    57  .  .  .  .  .  .  .  NodeDecs: dst.NodeDecs {
+    58  .  .  .  .  .  .  .  .  Before: None
+    59  .  .  .  .  .  .  .  .  After: None
+    60  .  .  .  .  .  .  .  }
+    61  .  .  .  .  .  .  }
+    62  .  .  .  .  .  }
+    63  .  .  .  .  .  Assign: false
+    64  .  .  .  .  .  Type: *dst.Ident {
+    65  .  .  .  .  .  .  Name: "string"
+    66  .  .  .  .  .  .  Path: ""
+    67  .  .  .  .  .  .  Decs: dst.IdentDecorations {
+    68  .  .  .  .  .  .  .  NodeDecs: dst.NodeDecs {
+    69  .  .  .  .  .  .  .  .  Before: None
+    70  .  .  .  .  .  .  .  .  After: None
+    71  .  .  .  .  .  .  .  }
+    72  .  .  .  .  .  .  }
+    73  .  .  .  .  .  }
+    74  .  .  .  .  .  Decs: dst.TypeSpecDecorations {
+    75  .  .  .  .  .  .  NodeDecs: dst.NodeDecs {
+    76  .  .  .  .  .  .  .  Before: None
+    77  .  .  .  .  .  .  .  After: None
+    78  .  .  .  .  .  .  }
+    79  .  .  .  .  .  }
+    80  .  .  .  .  }
+    81  .  .  .  }
+    82  .  .  .  Rparen: false
+    83  .  .  .  Decs: dst.GenDeclDecorations {
+    84  .  .  .  .  NodeDecs: dst.NodeDecs {
+    85  .  .  .  .  .  Before: EmptyLine
+    86  .  .  .  .  .  After: EmptyLine
+    87  .  .  .  .  }
+    88  .  .  .  }
+    89  .  .  }
+    90  .  .  2: *dst.GenDecl {
+    91  .  .  .  Tok: const
+    92  .  .  .  Lparen: true
+    93  .  .  .  Specs: []dst.Spec (len = 3) {
+    94  .  .  .  .  0: *dst.ValueSpec {
+    95  .  .  .  .  .  Names: []*dst.Ident (len = 1) {
+    96  .  .  .  .  .  .  0: *dst.Ident {
+    97  .  .  .  .  .  .  .  Name: "FooFoo"
+    98  .  .  .  .  .  .  .  Obj: *dst.Object {
+    99  .  .  .  .  .  .  .  .  Kind: const
+   100  .  .  .  .  .  .  .  .  Name: "FooFoo"
+   101  .  .  .  .  .  .  .  .  Decl: *(obj @ 94)
+   102  .  .  .  .  .  .  .  .  Data: 0
+   103  .  .  .  .  .  .  .  }
+   104  .  .  .  .  .  .  .  Path: ""
+   105  .  .  .  .  .  .  .  Decs: dst.IdentDecorations {
+   106  .  .  .  .  .  .  .  .  NodeDecs: dst.NodeDecs {
+   107  .  .  .  .  .  .  .  .  .  Before: None
+   108  .  .  .  .  .  .  .  .  .  After: None
+   109  .  .  .  .  .  .  .  .  }
+   110  .  .  .  .  .  .  .  }
+   111  .  .  .  .  .  .  }
+   112  .  .  .  .  .  }
+   113  .  .  .  .  .  Type: *dst.Ident {
+   114  .  .  .  .  .  .  Name: "Foo"
+   115  .  .  .  .  .  .  Obj: *(obj @ 50)
+   116  .  .  .  .  .  .  Path: ""
+   117  .  .  .  .  .  .  Decs: dst.IdentDecorations {
+   118  .  .  .  .  .  .  .  NodeDecs: dst.NodeDecs {
+   119  .  .  .  .  .  .  .  .  Before: None
+   120  .  .  .  .  .  .  .  .  After: None
+   121  .  .  .  .  .  .  .  }
+   122  .  .  .  .  .  .  }
+   123  .  .  .  .  .  }
+   124  .  .  .  .  .  Values: []dst.Expr (len = 1) {
+   125  .  .  .  .  .  .  0: *dst.BasicLit {
+   126  .  .  .  .  .  .  .  Kind: STRING
+   127  .  .  .  .  .  .  .  Value: "\"foo\""
+   128  .  .  .  .  .  .  .  Decs: dst.BasicLitDecorations {
+   129  .  .  .  .  .  .  .  .  NodeDecs: dst.NodeDecs {
+   130  .  .  .  .  .  .  .  .  .  Before: None
+   131  .  .  .  .  .  .  .  .  .  After: None
+   132  .  .  .  .  .  .  .  .  }
+   133  .  .  .  .  .  .  .  }
+   134  .  .  .  .  .  .  }
+   135  .  .  .  .  .  }
+   136  .  .  .  .  .  Decs: dst.ValueSpecDecorations {
+   137  .  .  .  .  .  .  NodeDecs: dst.NodeDecs {
+   138  .  .  .  .  .  .  .  Before: NewLine
+   139  .  .  .  .  .  .  .  After: NewLine
+   140  .  .  .  .  .  .  }
+   141  .  .  .  .  .  }
+   142  .  .  .  .  }
+   143  .  .  .  .  1: *dst.ValueSpec {
+   144  .  .  .  .  .  Names: []*dst.Ident (len = 1) {
+   145  .  .  .  .  .  .  0: *dst.Ident {
+   146  .  .  .  .  .  .  .  Name: "FooBar"
+   147  .  .  .  .  .  .  .  Obj: *dst.Object {
+   148  .  .  .  .  .  .  .  .  Kind: const
+   149  .  .  .  .  .  .  .  .  Name: "FooBar"
+   150  .  .  .  .  .  .  .  .  Decl: *(obj @ 143)
+   151  .  .  .  .  .  .  .  .  Data: 1
+   152  .  .  .  .  .  .  .  }
+   153  .  .  .  .  .  .  .  Path: ""
+   154  .  .  .  .  .  .  .  Decs: dst.IdentDecorations {
+   155  .  .  .  .  .  .  .  .  NodeDecs: dst.NodeDecs {
+   156  .  .  .  .  .  .  .  .  .  Before: None
+   157  .  .  .  .  .  .  .  .  .  After: None
+   158  .  .  .  .  .  .  .  .  }
+   159  .  .  .  .  .  .  .  }
+   160  .  .  .  .  .  .  }
+   161  .  .  .  .  .  }
+   162  .  .  .  .  .  Type: *dst.Ident {
+   163  .  .  .  .  .  .  Name: "Foo"
+   164  .  .  .  .  .  .  Obj: *(obj @ 50)
+   165  .  .  .  .  .  .  Path: ""
+   166  .  .  .  .  .  .  Decs: dst.IdentDecorations {
+   167  .  .  .  .  .  .  .  NodeDecs: dst.NodeDecs {
+   168  .  .  .  .  .  .  .  .  Before: None
+   169  .  .  .  .  .  .  .  .  After: None
+   170  .  .  .  .  .  .  .  }
+   171  .  .  .  .  .  .  }
+   172  .  .  .  .  .  }
+   173  .  .  .  .  .  Values: []dst.Expr (len = 1) {
+   174  .  .  .  .  .  .  0: *dst.BasicLit {
+   175  .  .  .  .  .  .  .  Kind: STRING
+   176  .  .  .  .  .  .  .  Value: "\"bar\""
+   177  .  .  .  .  .  .  .  Decs: dst.BasicLitDecorations {
+   178  .  .  .  .  .  .  .  .  NodeDecs: dst.NodeDecs {
+   179  .  .  .  .  .  .  .  .  .  Before: None
+   180  .  .  .  .  .  .  .  .  .  After: None
+   181  .  .  .  .  .  .  .  .  }
+   182  .  .  .  .  .  .  .  }
+   183  .  .  .  .  .  .  }
+   184  .  .  .  .  .  }
+   185  .  .  .  .  .  Decs: dst.ValueSpecDecorations {
+   186  .  .  .  .  .  .  NodeDecs: dst.NodeDecs {
+   187  .  .  .  .  .  .  .  Before: NewLine
+   188  .  .  .  .  .  .  .  After: NewLine
+   189  .  .  .  .  .  .  }
+   190  .  .  .  .  .  }
+   191  .  .  .  .  }
+   192  .  .  .  .  2: *dst.ValueSpec {
+   193  .  .  .  .  .  Names: []*dst.Ident (len = 1) {
+   194  .  .  .  .  .  .  0: *dst.Ident {
+   195  .  .  .  .  .  .  .  Name: "FooBaz"
+   196  .  .  .  .  .  .  .  Obj: *dst.Object {
+   197  .  .  .  .  .  .  .  .  Kind: const
+   198  .  .  .  .  .  .  .  .  Name: "FooBaz"
+   199  .  .  .  .  .  .  .  .  Decl: *(obj @ 192)
+   200  .  .  .  .  .  .  .  .  Data: 2
+   201  .  .  .  .  .  .  .  }
+   202  .  .  .  .  .  .  .  Path: ""
+   203  .  .  .  .  .  .  .  Decs: dst.IdentDecorations {
+   204  .  .  .  .  .  .  .  .  NodeDecs: dst.NodeDecs {
+   205  .  .  .  .  .  .  .  .  .  Before: None
+   206  .  .  .  .  .  .  .  .  .  After: None
+   207  .  .  .  .  .  .  .  .  }
+   208  .  .  .  .  .  .  .  }
+   209  .  .  .  .  .  .  }
+   210  .  .  .  .  .  }
+   211  .  .  .  .  .  Type: *dst.Ident {
+   212  .  .  .  .  .  .  Name: "Foo"
+   213  .  .  .  .  .  .  Obj: *(obj @ 50)
+   214  .  .  .  .  .  .  Path: ""
+   215  .  .  .  .  .  .  Decs: dst.IdentDecorations {
+   216  .  .  .  .  .  .  .  NodeDecs: dst.NodeDecs {
+   217  .  .  .  .  .  .  .  .  Before: None
+   218  .  .  .  .  .  .  .  .  After: None
+   219  .  .  .  .  .  .  .  }
+   220  .  .  .  .  .  .  }
+   221  .  .  .  .  .  }
+   222  .  .  .  .  .  Values: []dst.Expr (len = 1) {
+   223  .  .  .  .  .  .  0: *dst.BasicLit {
+   224  .  .  .  .  .  .  .  Kind: STRING
+   225  .  .  .  .  .  .  .  Value: "\"baz\""
+   226  .  .  .  .  .  .  .  Decs: dst.BasicLitDecorations {
+   227  .  .  .  .  .  .  .  .  NodeDecs: dst.NodeDecs {
+   228  .  .  .  .  .  .  .  .  .  Before: None
+   229  .  .  .  .  .  .  .  .  .  After: None
+   230  .  .  .  .  .  .  .  .  }
+   231  .  .  .  .  .  .  .  }
+   232  .  .  .  .  .  .  }
+   233  .  .  .  .  .  }
+   234  .  .  .  .  .  Decs: dst.ValueSpecDecorations {
+   235  .  .  .  .  .  .  NodeDecs: dst.NodeDecs {
+   236  .  .  .  .  .  .  .  Before: NewLine
+   237  .  .  .  .  .  .  .  After: NewLine
+   238  .  .  .  .  .  .  }
+   239  .  .  .  .  .  }
+   240  .  .  .  .  }
+   241  .  .  .  }
+   242  .  .  .  Rparen: true
+   243  .  .  .  Decs: dst.GenDeclDecorations {
+   244  .  .  .  .  NodeDecs: dst.NodeDecs {
+   245  .  .  .  .  .  Before: EmptyLine
+   246  .  .  .  .  .  After: EmptyLine
+   247  .  .  .  .  }
+   248  .  .  .  }
+   249  .  .  }
+   250  .  .  3: *dst.FuncDecl {
+   251  .  .  .  Name: *dst.Ident {
+   252  .  .  .  .  Name: "Bar"
+   253  .  .  .  .  Obj: *dst.Object {
+   254  .  .  .  .  .  Kind: func
+   255  .  .  .  .  .  Name: "Bar"
+   256  .  .  .  .  .  Decl: *(obj @ 250)
+   257  .  .  .  .  }
+   258  .  .  .  .  Path: ""
+   259  .  .  .  .  Decs: dst.IdentDecorations {
+   260  .  .  .  .  .  NodeDecs: dst.NodeDecs {
+   261  .  .  .  .  .  .  Before: None
+   262  .  .  .  .  .  .  After: None
+   263  .  .  .  .  .  }
+   264  .  .  .  .  }
+   265  .  .  .  }
+   266  .  .  .  Type: *dst.FuncType {
+   267  .  .  .  .  Func: true
+   268  .  .  .  .  Params: *dst.FieldList {
+   269  .  .  .  .  .  Opening: true
+   270  .  .  .  .  .  List: []*dst.Field (len = 1) {
+   271  .  .  .  .  .  .  0: *dst.Field {
+   272  .  .  .  .  .  .  .  Names: []*dst.Ident (len = 2) {
+   273  .  .  .  .  .  .  .  .  0: *dst.Ident {
+   274  .  .  .  .  .  .  .  .  .  Name: "x"
+   275  .  .  .  .  .  .  .  .  .  Obj: *dst.Object {
+   276  .  .  .  .  .  .  .  .  .  .  Kind: var
+   277  .  .  .  .  .  .  .  .  .  .  Name: "x"
+   278  .  .  .  .  .  .  .  .  .  .  Decl: *(obj @ 271)
+   279  .  .  .  .  .  .  .  .  .  }
+   280  .  .  .  .  .  .  .  .  .  Path: ""
+   281  .  .  .  .  .  .  .  .  .  Decs: dst.IdentDecorations {
+   282  .  .  .  .  .  .  .  .  .  .  NodeDecs: dst.NodeDecs {
+   283  .  .  .  .  .  .  .  .  .  .  .  Before: None
+   284  .  .  .  .  .  .  .  .  .  .  .  After: None
+   285  .  .  .  .  .  .  .  .  .  .  }
+   286  .  .  .  .  .  .  .  .  .  }
+   287  .  .  .  .  .  .  .  .  }
+   288  .  .  .  .  .  .  .  .  1: *dst.Ident {
+   289  .  .  .  .  .  .  .  .  .  Name: "y"
+   290  .  .  .  .  .  .  .  .  .  Obj: *dst.Object {
+   291  .  .  .  .  .  .  .  .  .  .  Kind: var
+   292  .  .  .  .  .  .  .  .  .  .  Name: "y"
+   293  .  .  .  .  .  .  .  .  .  .  Decl: *(obj @ 271)
+   294  .  .  .  .  .  .  .  .  .  }
+   295  .  .  .  .  .  .  .  .  .  Path: ""
+   296  .  .  .  .  .  .  .  .  .  Decs: dst.IdentDecorations {
+   297  .  .  .  .  .  .  .  .  .  .  NodeDecs: dst.NodeDecs {
+   298  .  .  .  .  .  .  .  .  .  .  .  Before: None
+   299  .  .  .  .  .  .  .  .  .  .  .  After: None
+   300  .  .  .  .  .  .  .  .  .  .  }
+   301  .  .  .  .  .  .  .  .  .  }
+   302  .  .  .  .  .  .  .  .  }
+   303  .  .  .  .  .  .  .  }
+   304  .  .  .  .  .  .  .  Type: *dst.Ident {
+   305  .  .  .  .  .  .  .  .  Name: "string"
+   306  .  .  .  .  .  .  .  .  Path: ""
+   307  .  .  .  .  .  .  .  .  Decs: dst.IdentDecorations {
+   308  .  .  .  .  .  .  .  .  .  NodeDecs: dst.NodeDecs {
+   309  .  .  .  .  .  .  .  .  .  .  Before: None
+   310  .  .  .  .  .  .  .  .  .  .  After: None
+   311  .  .  .  .  .  .  .  .  .  }
+   312  .  .  .  .  .  .  .  .  }
+   313  .  .  .  .  .  .  .  }
+   314  .  .  .  .  .  .  .  Decs: dst.FieldDecorations {
+   315  .  .  .  .  .  .  .  .  NodeDecs: dst.NodeDecs {
+   316  .  .  .  .  .  .  .  .  .  Before: None
+   317  .  .  .  .  .  .  .  .  .  After: None
+   318  .  .  .  .  .  .  .  .  }
+   319  .  .  .  .  .  .  .  }
+   320  .  .  .  .  .  .  }
+   321  .  .  .  .  .  }
+   322  .  .  .  .  .  Closing: true
+   323  .  .  .  .  .  Decs: dst.FieldListDecorations {
+   324  .  .  .  .  .  .  NodeDecs: dst.NodeDecs {
+   325  .  .  .  .  .  .  .  Before: None
+   326  .  .  .  .  .  .  .  After: None
+   327  .  .  .  .  .  .  }
+   328  .  .  .  .  .  }
+   329  .  .  .  .  }
+   330  .  .  .  .  Results: *dst.FieldList {
+   331  .  .  .  .  .  Opening: false
+   332  .  .  .  .  .  List: []*dst.Field (len = 1) {
+   333  .  .  .  .  .  .  0: *dst.Field {
+   334  .  .  .  .  .  .  .  Type: *dst.Ident {
+   335  .  .  .  .  .  .  .  .  Name: "string"
+   336  .  .  .  .  .  .  .  .  Path: ""
+   337  .  .  .  .  .  .  .  .  Decs: dst.IdentDecorations {
+   338  .  .  .  .  .  .  .  .  .  NodeDecs: dst.NodeDecs {
+   339  .  .  .  .  .  .  .  .  .  .  Before: None
+   340  .  .  .  .  .  .  .  .  .  .  After: None
+   341  .  .  .  .  .  .  .  .  .  }
+   342  .  .  .  .  .  .  .  .  }
+   343  .  .  .  .  .  .  .  }
+   344  .  .  .  .  .  .  .  Decs: dst.FieldDecorations {
+   345  .  .  .  .  .  .  .  .  NodeDecs: dst.NodeDecs {
+   346  .  .  .  .  .  .  .  .  .  Before: None
+   347  .  .  .  .  .  .  .  .  .  After: None
+   348  .  .  .  .  .  .  .  .  }
+   349  .  .  .  .  .  .  .  }
+   350  .  .  .  .  .  .  }
+   351  .  .  .  .  .  }
+   352  .  .  .  .  .  Closing: false
+   353  .  .  .  .  .  Decs: dst.FieldListDecorations {
+   354  .  .  .  .  .  .  NodeDecs: dst.NodeDecs {
+   355  .  .  .  .  .  .  .  Before: None
+   356  .  .  .  .  .  .  .  After: None
+   357  .  .  .  .  .  .  }
+   358  .  .  .  .  .  }
+   359  .  .  .  .  }
+   360  .  .  .  .  Decs: dst.FuncTypeDecorations {
+   361  .  .  .  .  .  NodeDecs: dst.NodeDecs {
+   362  .  .  .  .  .  .  Before: None
+   363  .  .  .  .  .  .  After: None
+   364  .  .  .  .  .  }
+   365  .  .  .  .  }
+   366  .  .  .  }
+   367  .  .  .  Body: *dst.BlockStmt {
+   368  .  .  .  .  List: []dst.Stmt (len = 2) {
+   369  .  .  .  .  .  0: *dst.IfStmt {
+   370  .  .  .  .  .  .  Cond: *dst.BinaryExpr {
+   371  .  .  .  .  .  .  .  X: *dst.CallExpr {
+   372  .  .  .  .  .  .  .  .  Fun: *dst.Ident {
+   373  .  .  .  .  .  .  .  .  .  Name: "len"
+   374  .  .  .  .  .  .  .  .  .  Path: ""
+   375  .  .  .  .  .  .  .  .  .  Decs: dst.IdentDecorations {
+   376  .  .  .  .  .  .  .  .  .  .  NodeDecs: dst.NodeDecs {
+   377  .  .  .  .  .  .  .  .  .  .  .  Before: None
+   378  .  .  .  .  .  .  .  .  .  .  .  After: None
+   379  .  .  .  .  .  .  .  .  .  .  }
+   380  .  .  .  .  .  .  .  .  .  }
+   381  .  .  .  .  .  .  .  .  }
+   382  .  .  .  .  .  .  .  .  Args: []dst.Expr (len = 1) {
+   383  .  .  .  .  .  .  .  .  .  0: *dst.Ident {
+   384  .  .  .  .  .  .  .  .  .  .  Name: "x"
+   385  .  .  .  .  .  .  .  .  .  .  Obj: *(obj @ 275)
+   386  .  .  .  .  .  .  .  .  .  .  Path: ""
+   387  .  .  .  .  .  .  .  .  .  .  Decs: dst.IdentDecorations {
+   388  .  .  .  .  .  .  .  .  .  .  .  NodeDecs: dst.NodeDecs {
+   389  .  .  .  .  .  .  .  .  .  .  .  .  Before: None
+   390  .  .  .  .  .  .  .  .  .  .  .  .  After: None
+   391  .  .  .  .  .  .  .  .  .  .  .  }
+   392  .  .  .  .  .  .  .  .  .  .  }
+   393  .  .  .  .  .  .  .  .  .  }
+   394  .  .  .  .  .  .  .  .  }
+   395  .  .  .  .  .  .  .  .  Ellipsis: false
+   396  .  .  .  .  .  .  .  .  Decs: dst.CallExprDecorations {
+   397  .  .  .  .  .  .  .  .  .  NodeDecs: dst.NodeDecs {
+   398  .  .  .  .  .  .  .  .  .  .  Before: None
+   399  .  .  .  .  .  .  .  .  .  .  After: None
+   400  .  .  .  .  .  .  .  .  .  }
+   401  .  .  .  .  .  .  .  .  }
+   402  .  .  .  .  .  .  .  }
+   403  .  .  .  .  .  .  .  Op: ==
+   404  .  .  .  .  .  .  .  Y: *dst.BasicLit {
+   405  .  .  .  .  .  .  .  .  Kind: INT
+   406  .  .  .  .  .  .  .  .  Value: "0"
+   407  .  .  .  .  .  .  .  .  Decs: dst.BasicLitDecorations {
+   408  .  .  .  .  .  .  .  .  .  NodeDecs: dst.NodeDecs {
+   409  .  .  .  .  .  .  .  .  .  .  Before: None
+   410  .  .  .  .  .  .  .  .  .  .  After: None
+   411  .  .  .  .  .  .  .  .  .  }
+   412  .  .  .  .  .  .  .  .  }
+   413  .  .  .  .  .  .  .  }
+   414  .  .  .  .  .  .  .  Decs: dst.BinaryExprDecorations {
+   415  .  .  .  .  .  .  .  .  NodeDecs: dst.NodeDecs {
+   416  .  .  .  .  .  .  .  .  .  Before: None
+   417  .  .  .  .  .  .  .  .  .  After: None
+   418  .  .  .  .  .  .  .  .  }
+   419  .  .  .  .  .  .  .  }
+   420  .  .  .  .  .  .  }
+   421  .  .  .  .  .  .  Body: *dst.BlockStmt {
+   422  .  .  .  .  .  .  .  List: []dst.Stmt (len = 1) {
+   423  .  .  .  .  .  .  .  .  0: *dst.ReturnStmt {
+   424  .  .  .  .  .  .  .  .  .  Results: []dst.Expr (len = 1) {
+   425  .  .  .  .  .  .  .  .  .  .  0: *dst.BinaryExpr {
+   426  .  .  .  .  .  .  .  .  .  .  .  X: *dst.Ident {
+   427  .  .  .  .  .  .  .  .  .  .  .  .  Name: "y"
+   428  .  .  .  .  .  .  .  .  .  .  .  .  Obj: *(obj @ 290)
+   429  .  .  .  .  .  .  .  .  .  .  .  .  Path: ""
+   430  .  .  .  .  .  .  .  .  .  .  .  .  Decs: dst.IdentDecorations {
+   431  .  .  .  .  .  .  .  .  .  .  .  .  .  NodeDecs: dst.NodeDecs {
+   432  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Before: None
+   433  .  .  .  .  .  .  .  .  .  .  .  .  .  .  After: None
+   434  .  .  .  .  .  .  .  .  .  .  .  .  .  }
+   435  .  .  .  .  .  .  .  .  .  .  .  .  }
+   436  .  .  .  .  .  .  .  .  .  .  .  }
+   437  .  .  .  .  .  .  .  .  .  .  .  Op: +
+   438  .  .  .  .  .  .  .  .  .  .  .  Y: *dst.Ident {
+   439  .  .  .  .  .  .  .  .  .  .  .  .  Name: "y"
+   440  .  .  .  .  .  .  .  .  .  .  .  .  Obj: *(obj @ 290)
+   441  .  .  .  .  .  .  .  .  .  .  .  .  Path: ""
+   442  .  .  .  .  .  .  .  .  .  .  .  .  Decs: dst.IdentDecorations {
+   443  .  .  .  .  .  .  .  .  .  .  .  .  .  NodeDecs: dst.NodeDecs {
+   444  .  .  .  .  .  .  .  .  .  .  .  .  .  .  Before: None
+   445  .  .  .  .  .  .  .  .  .  .  .  .  .  .  After: None
+   446  .  .  .  .  .  .  .  .  .  .  .  .  .  }
+   447  .  .  .  .  .  .  .  .  .  .  .  .  }
+   448  .  .  .  .  .  .  .  .  .  .  .  }
+   449  .  .  .  .  .  .  .  .  .  .  .  Decs: dst.BinaryExprDecorations {
+   450  .  .  .  .  .  .  .  .  .  .  .  .  NodeDecs: dst.NodeDecs {
+   451  .  .  .  .  .  .  .  .  .  .  .  .  .  Before: None
+   452  .  .  .  .  .  .  .  .  .  .  .  .  .  After: None
+   453  .  .  .  .  .  .  .  .  .  .  .  .  }
+   454  .  .  .  .  .  .  .  .  .  .  .  }
+   455  .  .  .  .  .  .  .  .  .  .  }
+   456  .  .  .  .  .  .  .  .  .  }
+   457  .  .  .  .  .  .  .  .  .  Decs: dst.ReturnStmtDecorations {
+   458  .  .  .  .  .  .  .  .  .  .  NodeDecs: dst.NodeDecs {
+   459  .  .  .  .  .  .  .  .  .  .  .  Before: NewLine
+   460  .  .  .  .  .  .  .  .  .  .  .  After: NewLine
+   461  .  .  .  .  .  .  .  .  .  .  }
+   462  .  .  .  .  .  .  .  .  .  }
+   463  .  .  .  .  .  .  .  .  }
+   464  .  .  .  .  .  .  .  }
+   465  .  .  .  .  .  .  .  RbraceHasNoPos: false
+   466  .  .  .  .  .  .  .  Decs: dst.BlockStmtDecorations {
+   467  .  .  .  .  .  .  .  .  NodeDecs: dst.NodeDecs {
+   468  .  .  .  .  .  .  .  .  .  Before: None
+   469  .  .  .  .  .  .  .  .  .  After: None
+   470  .  .  .  .  .  .  .  .  }
+   471  .  .  .  .  .  .  .  }
+   472  .  .  .  .  .  .  }
+   473  .  .  .  .  .  .  Decs: dst.IfStmtDecorations {
+   474  .  .  .  .  .  .  .  NodeDecs: dst.NodeDecs {
+   475  .  .  .  .  .  .  .  .  Before: NewLine
+   476  .  .  .  .  .  .  .  .  After: NewLine
+   477  .  .  .  .  .  .  .  }
+   478  .  .  .  .  .  .  }
+   479  .  .  .  .  .  }
+   480  .  .  .  .  .  1: *dst.ReturnStmt {
+   481  .  .  .  .  .  .  Results: []dst.Expr (len = 1) {
+   482  .  .  .  .  .  .  .  0: *dst.CallExpr {
+   483  .  .  .  .  .  .  .  .  Fun: *dst.SelectorExpr {
+   484  .  .  .  .  .  .  .  .  .  X: *dst.Ident {
+   485  .  .  .  .  .  .  .  .  .  .  Name: "fmt"
+   486  .  .  .  .  .  .  .  .  .  .  Path: ""
+   487  .  .  .  .  .  .  .  .  .  .  Decs: dst.IdentDecorations {
+   488  .  .  .  .  .  .  .  .  .  .  .  NodeDecs: dst.NodeDecs {
+   489  .  .  .  .  .  .  .  .  .  .  .  .  Before: None
+   490  .  .  .  .  .  .  .  .  .  .  .  .  After: None
+   491  .  .  .  .  .  .  .  .  .  .  .  }
+   492  .  .  .  .  .  .  .  .  .  .  }
+   493  .  .  .  .  .  .  .  .  .  }
+   494  .  .  .  .  .  .  .  .  .  Sel: *dst.Ident {
+   495  .  .  .  .  .  .  .  .  .  .  Name: "Sprintf"
+   496  .  .  .  .  .  .  .  .  .  .  Path: ""
+   497  .  .  .  .  .  .  .  .  .  .  Decs: dst.IdentDecorations {
+   498  .  .  .  .  .  .  .  .  .  .  .  NodeDecs: dst.NodeDecs {
+   499  .  .  .  .  .  .  .  .  .  .  .  .  Before: None
+   500  .  .  .  .  .  .  .  .  .  .  .  .  After: None
+   501  .  .  .  .  .  .  .  .  .  .  .  }
+   502  .  .  .  .  .  .  .  .  .  .  }
+   503  .  .  .  .  .  .  .  .  .  }
+   504  .  .  .  .  .  .  .  .  .  Decs: dst.SelectorExprDecorations {
+   505  .  .  .  .  .  .  .  .  .  .  NodeDecs: dst.NodeDecs {
+   506  .  .  .  .  .  .  .  .  .  .  .  Before: None
+   507  .  .  .  .  .  .  .  .  .  .  .  After: None
+   508  .  .  .  .  .  .  .  .  .  .  }
+   509  .  .  .  .  .  .  .  .  .  }
+   510  .  .  .  .  .  .  .  .  }
+   511  .  .  .  .  .  .  .  .  Args: []dst.Expr (len = 3) {
+   512  .  .  .  .  .  .  .  .  .  0: *dst.BasicLit {
+   513  .  .  .  .  .  .  .  .  .  .  Kind: STRING
+   514  .  .  .  .  .  .  .  .  .  .  Value: "\"%q%q\""
+   515  .  .  .  .  .  .  .  .  .  .  Decs: dst.BasicLitDecorations {
+   516  .  .  .  .  .  .  .  .  .  .  .  NodeDecs: dst.NodeDecs {
+   517  .  .  .  .  .  .  .  .  .  .  .  .  Before: None
+   518  .  .  .  .  .  .  .  .  .  .  .  .  After: None
+   519  .  .  .  .  .  .  .  .  .  .  .  }
+   520  .  .  .  .  .  .  .  .  .  .  }
+   521  .  .  .  .  .  .  .  .  .  }
+   522  .  .  .  .  .  .  .  .  .  1: *dst.Ident {
+   523  .  .  .  .  .  .  .  .  .  .  Name: "x"
+   524  .  .  .  .  .  .  .  .  .  .  Obj: *(obj @ 275)
+   525  .  .  .  .  .  .  .  .  .  .  Path: ""
+   526  .  .  .  .  .  .  .  .  .  .  Decs: dst.IdentDecorations {
+   527  .  .  .  .  .  .  .  .  .  .  .  NodeDecs: dst.NodeDecs {
+   528  .  .  .  .  .  .  .  .  .  .  .  .  Before: None
+   529  .  .  .  .  .  .  .  .  .  .  .  .  After: None
+   530  .  .  .  .  .  .  .  .  .  .  .  }
+   531  .  .  .  .  .  .  .  .  .  .  }
+   532  .  .  .  .  .  .  .  .  .  }
+   533  .  .  .  .  .  .  .  .  .  2: *dst.Ident {
+   534  .  .  .  .  .  .  .  .  .  .  Name: "y"
+   535  .  .  .  .  .  .  .  .  .  .  Obj: *(obj @ 290)
+   536  .  .  .  .  .  .  .  .  .  .  Path: ""
+   537  .  .  .  .  .  .  .  .  .  .  Decs: dst.IdentDecorations {
+   538  .  .  .  .  .  .  .  .  .  .  .  NodeDecs: dst.NodeDecs {
+   539  .  .  .  .  .  .  .  .  .  .  .  .  Before: None
+   540  .  .  .  .  .  .  .  .  .  .  .  .  After: None
+   541  .  .  .  .  .  .  .  .  .  .  .  }
+   542  .  .  .  .  .  .  .  .  .  .  }
+   543  .  .  .  .  .  .  .  .  .  }
+   544  .  .  .  .  .  .  .  .  }
+   545  .  .  .  .  .  .  .  .  Ellipsis: false
+   546  .  .  .  .  .  .  .  .  Decs: dst.CallExprDecorations {
+   547  .  .  .  .  .  .  .  .  .  NodeDecs: dst.NodeDecs {
+   548  .  .  .  .  .  .  .  .  .  .  Before: None
+   549  .  .  .  .  .  .  .  .  .  .  After: None
+   550  .  .  .  .  .  .  .  .  .  }
+   551  .  .  .  .  .  .  .  .  }
+   552  .  .  .  .  .  .  .  }
+   553  .  .  .  .  .  .  }
+   554  .  .  .  .  .  .  Decs: dst.ReturnStmtDecorations {
+   555  .  .  .  .  .  .  .  NodeDecs: dst.NodeDecs {
+   556  .  .  .  .  .  .  .  .  Before: NewLine
+   557  .  .  .  .  .  .  .  .  After: NewLine
+   558  .  .  .  .  .  .  .  }
+   559  .  .  .  .  .  .  }
+   560  .  .  .  .  .  }
+   561  .  .  .  .  }
+   562  .  .  .  .  RbraceHasNoPos: false
+   563  .  .  .  .  Decs: dst.BlockStmtDecorations {
+   564  .  .  .  .  .  NodeDecs: dst.NodeDecs {
+   565  .  .  .  .  .  .  Before: None
+   566  .  .  .  .  .  .  After: None
+   567  .  .  .  .  .  }
+   568  .  .  .  .  }
+   569  .  .  .  }
+   570  .  .  .  Decs: dst.FuncDeclDecorations {
+   571  .  .  .  .  NodeDecs: dst.NodeDecs {
+   572  .  .  .  .  .  Before: EmptyLine
+   573  .  .  .  .  .  After: EmptyLine
+   574  .  .  .  .  }
+   575  .  .  .  }
+   576  .  .  }
+   577  .  .  4: *dst.GenDecl {
+   578  .  .  .  Tok: type
+   579  .  .  .  Lparen: false
+   580  .  .  .  Specs: []dst.Spec (len = 1) {
+   581  .  .  .  .  0: *dst.TypeSpec {
+   582  .  .  .  .  .  Name: *dst.Ident {
+   583  .  .  .  .  .  .  Name: "Some"
+   584  .  .  .  .  .  .  Obj: *dst.Object {
+   585  .  .  .  .  .  .  .  Kind: type
+   586  .  .  .  .  .  .  .  Name: "Some"
+   587  .  .  .  .  .  .  .  Decl: *(obj @ 581)
+   588  .  .  .  .  .  .  }
+   589  .  .  .  .  .  .  Path: ""
+   590  .  .  .  .  .  .  Decs: dst.IdentDecorations {
+   591  .  .  .  .  .  .  .  NodeDecs: dst.NodeDecs {
+   592  .  .  .  .  .  .  .  .  Before: None
+   593  .  .  .  .  .  .  .  .  After: None
+   594  .  .  .  .  .  .  .  }
+   595  .  .  .  .  .  .  }
+   596  .  .  .  .  .  }
+   597  .  .  .  .  .  TypeParams: *dst.FieldList {
+   598  .  .  .  .  .  .  Opening: true
+   599  .  .  .  .  .  .  List: []*dst.Field (len = 1) {
+   600  .  .  .  .  .  .  .  0: *dst.Field {
+   601  .  .  .  .  .  .  .  .  Names: []*dst.Ident (len = 2) {
+   602  .  .  .  .  .  .  .  .  .  0: *dst.Ident {
+   603  .  .  .  .  .  .  .  .  .  .  Name: "T"
+   604  .  .  .  .  .  .  .  .  .  .  Obj: *dst.Object {
+   605  .  .  .  .  .  .  .  .  .  .  .  Kind: type
+   606  .  .  .  .  .  .  .  .  .  .  .  Name: "T"
+   607  .  .  .  .  .  .  .  .  .  .  .  Decl: *(obj @ 600)
+   608  .  .  .  .  .  .  .  .  .  .  }
+   609  .  .  .  .  .  .  .  .  .  .  Path: ""
+   610  .  .  .  .  .  .  .  .  .  .  Decs: dst.IdentDecorations {
+   611  .  .  .  .  .  .  .  .  .  .  .  NodeDecs: dst.NodeDecs {
+   612  .  .  .  .  .  .  .  .  .  .  .  .  Before: None
+   613  .  .  .  .  .  .  .  .  .  .  .  .  After: None
+   614  .  .  .  .  .  .  .  .  .  .  .  }
+   615  .  .  .  .  .  .  .  .  .  .  }
+   616  .  .  .  .  .  .  .  .  .  }
+   617  .  .  .  .  .  .  .  .  .  1: *dst.Ident {
+   618  .  .  .  .  .  .  .  .  .  .  Name: "U"
+   619  .  .  .  .  .  .  .  .  .  .  Obj: *dst.Object {
+   620  .  .  .  .  .  .  .  .  .  .  .  Kind: type
+   621  .  .  .  .  .  .  .  .  .  .  .  Name: "U"
+   622  .  .  .  .  .  .  .  .  .  .  .  Decl: *(obj @ 600)
+   623  .  .  .  .  .  .  .  .  .  .  }
+   624  .  .  .  .  .  .  .  .  .  .  Path: ""
+   625  .  .  .  .  .  .  .  .  .  .  Decs: dst.IdentDecorations {
+   626  .  .  .  .  .  .  .  .  .  .  .  NodeDecs: dst.NodeDecs {
+   627  .  .  .  .  .  .  .  .  .  .  .  .  Before: None
+   628  .  .  .  .  .  .  .  .  .  .  .  .  After: None
+   629  .  .  .  .  .  .  .  .  .  .  .  }
+   630  .  .  .  .  .  .  .  .  .  .  }
+   631  .  .  .  .  .  .  .  .  .  }
+   632  .  .  .  .  .  .  .  .  }
+   633  .  .  .  .  .  .  .  .  Type: *dst.Ident {
+   634  .  .  .  .  .  .  .  .  .  Name: "any"
+   635  .  .  .  .  .  .  .  .  .  Path: ""
+   636  .  .  .  .  .  .  .  .  .  Decs: dst.IdentDecorations {
+   637  .  .  .  .  .  .  .  .  .  .  NodeDecs: dst.NodeDecs {
+   638  .  .  .  .  .  .  .  .  .  .  .  Before: None
+   639  .  .  .  .  .  .  .  .  .  .  .  After: None
+   640  .  .  .  .  .  .  .  .  .  .  }
+   641  .  .  .  .  .  .  .  .  .  }
+   642  .  .  .  .  .  .  .  .  }
+   643  .  .  .  .  .  .  .  .  Decs: dst.FieldDecorations {
+   644  .  .  .  .  .  .  .  .  .  NodeDecs: dst.NodeDecs {
+   645  .  .  .  .  .  .  .  .  .  .  Before: None
+   646  .  .  .  .  .  .  .  .  .  .  After: None
+   647  .  .  .  .  .  .  .  .  .  }
+   648  .  .  .  .  .  .  .  .  }
+   649  .  .  .  .  .  .  .  }
+   650  .  .  .  .  .  .  }
+   651  .  .  .  .  .  .  Closing: true
+   652  .  .  .  .  .  .  Decs: dst.FieldListDecorations {
+   653  .  .  .  .  .  .  .  NodeDecs: dst.NodeDecs {
+   654  .  .  .  .  .  .  .  .  Before: None
+   655  .  .  .  .  .  .  .  .  After: None
+   656  .  .  .  .  .  .  .  }
+   657  .  .  .  .  .  .  }
+   658  .  .  .  .  .  }
+   659  .  .  .  .  .  Assign: false
+   660  .  .  .  .  .  Type: *dst.StructType {
+   661  .  .  .  .  .  .  Fields: *dst.FieldList {
+   662  .  .  .  .  .  .  .  Opening: true
+   663  .  .  .  .  .  .  .  List: []*dst.Field (len = 3) {
+   664  .  .  .  .  .  .  .  .  0: *dst.Field {
+   665  .  .  .  .  .  .  .  .  .  Names: []*dst.Ident (len = 1) {
+   666  .  .  .  .  .  .  .  .  .  .  0: *dst.Ident {
+   667  .  .  .  .  .  .  .  .  .  .  .  Name: "Foo"
+   668  .  .  .  .  .  .  .  .  .  .  .  Obj: *dst.Object {
+   669  .  .  .  .  .  .  .  .  .  .  .  .  Kind: var
+   670  .  .  .  .  .  .  .  .  .  .  .  .  Name: "Foo"
+   671  .  .  .  .  .  .  .  .  .  .  .  .  Decl: *(obj @ 664)
+   672  .  .  .  .  .  .  .  .  .  .  .  }
+   673  .  .  .  .  .  .  .  .  .  .  .  Path: ""
+   674  .  .  .  .  .  .  .  .  .  .  .  Decs: dst.IdentDecorations {
+   675  .  .  .  .  .  .  .  .  .  .  .  .  NodeDecs: dst.NodeDecs {
+   676  .  .  .  .  .  .  .  .  .  .  .  .  .  Before: None
+   677  .  .  .  .  .  .  .  .  .  .  .  .  .  After: None
+   678  .  .  .  .  .  .  .  .  .  .  .  .  }
+   679  .  .  .  .  .  .  .  .  .  .  .  }
+   680  .  .  .  .  .  .  .  .  .  .  }
+   681  .  .  .  .  .  .  .  .  .  }
+   682  .  .  .  .  .  .  .  .  .  Type: *dst.Ident {
+   683  .  .  .  .  .  .  .  .  .  .  Name: "string"
+   684  .  .  .  .  .  .  .  .  .  .  Path: ""
+   685  .  .  .  .  .  .  .  .  .  .  Decs: dst.IdentDecorations {
+   686  .  .  .  .  .  .  .  .  .  .  .  NodeDecs: dst.NodeDecs {
+   687  .  .  .  .  .  .  .  .  .  .  .  .  Before: None
+   688  .  .  .  .  .  .  .  .  .  .  .  .  After: None
+   689  .  .  .  .  .  .  .  .  .  .  .  }
+   690  .  .  .  .  .  .  .  .  .  .  }
+   691  .  .  .  .  .  .  .  .  .  }
+   692  .  .  .  .  .  .  .  .  .  Decs: dst.FieldDecorations {
+   693  .  .  .  .  .  .  .  .  .  .  NodeDecs: dst.NodeDecs {
+   694  .  .  .  .  .  .  .  .  .  .  .  Before: NewLine
+   695  .  .  .  .  .  .  .  .  .  .  .  After: NewLine
+   696  .  .  .  .  .  .  .  .  .  .  }
+   697  .  .  .  .  .  .  .  .  .  }
+   698  .  .  .  .  .  .  .  .  }
+   699  .  .  .  .  .  .  .  .  1: *dst.Field {
+   700  .  .  .  .  .  .  .  .  .  Names: []*dst.Ident (len = 1) {
+   701  .  .  .  .  .  .  .  .  .  .  0: *dst.Ident {
+   702  .  .  .  .  .  .  .  .  .  .  .  Name: "Bar"
+   703  .  .  .  .  .  .  .  .  .  .  .  Obj: *dst.Object {
+   704  .  .  .  .  .  .  .  .  .  .  .  .  Kind: var
+   705  .  .  .  .  .  .  .  .  .  .  .  .  Name: "Bar"
+   706  .  .  .  .  .  .  .  .  .  .  .  .  Decl: *(obj @ 699)
+   707  .  .  .  .  .  .  .  .  .  .  .  }
+   708  .  .  .  .  .  .  .  .  .  .  .  Path: ""
+   709  .  .  .  .  .  .  .  .  .  .  .  Decs: dst.IdentDecorations {
+   710  .  .  .  .  .  .  .  .  .  .  .  .  NodeDecs: dst.NodeDecs {
+   711  .  .  .  .  .  .  .  .  .  .  .  .  .  Before: None
+   712  .  .  .  .  .  .  .  .  .  .  .  .  .  After: None
+   713  .  .  .  .  .  .  .  .  .  .  .  .  }
+   714  .  .  .  .  .  .  .  .  .  .  .  }
+   715  .  .  .  .  .  .  .  .  .  .  }
+   716  .  .  .  .  .  .  .  .  .  }
+   717  .  .  .  .  .  .  .  .  .  Type: *dst.Ident {
+   718  .  .  .  .  .  .  .  .  .  .  Name: "T"
+   719  .  .  .  .  .  .  .  .  .  .  Obj: *(obj @ 604)
+   720  .  .  .  .  .  .  .  .  .  .  Path: ""
+   721  .  .  .  .  .  .  .  .  .  .  Decs: dst.IdentDecorations {
+   722  .  .  .  .  .  .  .  .  .  .  .  NodeDecs: dst.NodeDecs {
+   723  .  .  .  .  .  .  .  .  .  .  .  .  Before: None
+   724  .  .  .  .  .  .  .  .  .  .  .  .  After: None
+   725  .  .  .  .  .  .  .  .  .  .  .  }
+   726  .  .  .  .  .  .  .  .  .  .  }
+   727  .  .  .  .  .  .  .  .  .  }
+   728  .  .  .  .  .  .  .  .  .  Decs: dst.FieldDecorations {
+   729  .  .  .  .  .  .  .  .  .  .  NodeDecs: dst.NodeDecs {
+   730  .  .  .  .  .  .  .  .  .  .  .  Before: NewLine
+   731  .  .  .  .  .  .  .  .  .  .  .  After: NewLine
+   732  .  .  .  .  .  .  .  .  .  .  }
+   733  .  .  .  .  .  .  .  .  .  }
+   734  .  .  .  .  .  .  .  .  }
+   735  .  .  .  .  .  .  .  .  2: *dst.Field {
+   736  .  .  .  .  .  .  .  .  .  Names: []*dst.Ident (len = 1) {
+   737  .  .  .  .  .  .  .  .  .  .  0: *dst.Ident {
+   738  .  .  .  .  .  .  .  .  .  .  .  Name: "Baz"
+   739  .  .  .  .  .  .  .  .  .  .  .  Obj: *dst.Object {
+   740  .  .  .  .  .  .  .  .  .  .  .  .  Kind: var
+   741  .  .  .  .  .  .  .  .  .  .  .  .  Name: "Baz"
+   742  .  .  .  .  .  .  .  .  .  .  .  .  Decl: *(obj @ 735)
+   743  .  .  .  .  .  .  .  .  .  .  .  }
+   744  .  .  .  .  .  .  .  .  .  .  .  Path: ""
+   745  .  .  .  .  .  .  .  .  .  .  .  Decs: dst.IdentDecorations {
+   746  .  .  .  .  .  .  .  .  .  .  .  .  NodeDecs: dst.NodeDecs {
+   747  .  .  .  .  .  .  .  .  .  .  .  .  .  Before: None
+   748  .  .  .  .  .  .  .  .  .  .  .  .  .  After: None
+   749  .  .  .  .  .  .  .  .  .  .  .  .  }
+   750  .  .  .  .  .  .  .  .  .  .  .  }
+   751  .  .  .  .  .  .  .  .  .  .  }
+   752  .  .  .  .  .  .  .  .  .  }
+   753  .  .  .  .  .  .  .  .  .  Type: *dst.Ident {
+   754  .  .  .  .  .  .  .  .  .  .  Name: "U"
+   755  .  .  .  .  .  .  .  .  .  .  Obj: *(obj @ 619)
+   756  .  .  .  .  .  .  .  .  .  .  Path: ""
+   757  .  .  .  .  .  .  .  .  .  .  Decs: dst.IdentDecorations {
+   758  .  .  .  .  .  .  .  .  .  .  .  NodeDecs: dst.NodeDecs {
+   759  .  .  .  .  .  .  .  .  .  .  .  .  Before: None
+   760  .  .  .  .  .  .  .  .  .  .  .  .  After: None
+   761  .  .  .  .  .  .  .  .  .  .  .  }
+   762  .  .  .  .  .  .  .  .  .  .  }
+   763  .  .  .  .  .  .  .  .  .  }
+   764  .  .  .  .  .  .  .  .  .  Decs: dst.FieldDecorations {
+   765  .  .  .  .  .  .  .  .  .  .  NodeDecs: dst.NodeDecs {
+   766  .  .  .  .  .  .  .  .  .  .  .  Before: NewLine
+   767  .  .  .  .  .  .  .  .  .  .  .  After: NewLine
+   768  .  .  .  .  .  .  .  .  .  .  }
+   769  .  .  .  .  .  .  .  .  .  }
+   770  .  .  .  .  .  .  .  .  }
+   771  .  .  .  .  .  .  .  }
+   772  .  .  .  .  .  .  .  Closing: true
+   773  .  .  .  .  .  .  .  Decs: dst.FieldListDecorations {
+   774  .  .  .  .  .  .  .  .  NodeDecs: dst.NodeDecs {
+   775  .  .  .  .  .  .  .  .  .  Before: None
+   776  .  .  .  .  .  .  .  .  .  After: None
+   777  .  .  .  .  .  .  .  .  }
+   778  .  .  .  .  .  .  .  }
+   779  .  .  .  .  .  .  }
+   780  .  .  .  .  .  .  Incomplete: false
+   781  .  .  .  .  .  .  Decs: dst.StructTypeDecorations {
+   782  .  .  .  .  .  .  .  NodeDecs: dst.NodeDecs {
+   783  .  .  .  .  .  .  .  .  Before: None
+   784  .  .  .  .  .  .  .  .  After: None
+   785  .  .  .  .  .  .  .  }
+   786  .  .  .  .  .  .  }
+   787  .  .  .  .  .  }
+   788  .  .  .  .  .  Decs: dst.TypeSpecDecorations {
+   789  .  .  .  .  .  .  NodeDecs: dst.NodeDecs {
+   790  .  .  .  .  .  .  .  Before: None
+   791  .  .  .  .  .  .  .  After: None
+   792  .  .  .  .  .  .  }
+   793  .  .  .  .  .  }
+   794  .  .  .  .  }
+   795  .  .  .  }
+   796  .  .  .  Rparen: false
+   797  .  .  .  Decs: dst.GenDeclDecorations {
+   798  .  .  .  .  NodeDecs: dst.NodeDecs {
+   799  .  .  .  .  .  Before: EmptyLine
+   800  .  .  .  .  .  After: EmptyLine
+   801  .  .  .  .  }
+   802  .  .  .  }
+   803  .  .  }
+   804  .  .  5: *dst.FuncDecl {
+   805  .  .  .  Recv: *dst.FieldList {
+   806  .  .  .  .  Opening: true
+   807  .  .  .  .  List: []*dst.Field (len = 1) {
+   808  .  .  .  .  .  0: *dst.Field {
+   809  .  .  .  .  .  .  Names: []*dst.Ident (len = 1) {
+   810  .  .  .  .  .  .  .  0: *dst.Ident {
+   811  .  .  .  .  .  .  .  .  Name: "s"
+   812  .  .  .  .  .  .  .  .  Obj: *dst.Object {
+   813  .  .  .  .  .  .  .  .  .  Kind: var
+   814  .  .  .  .  .  .  .  .  .  Name: "s"
+   815  .  .  .  .  .  .  .  .  .  Decl: *(obj @ 808)
+   816  .  .  .  .  .  .  .  .  }
+   817  .  .  .  .  .  .  .  .  Path: ""
+   818  .  .  .  .  .  .  .  .  Decs: dst.IdentDecorations {
+   819  .  .  .  .  .  .  .  .  .  NodeDecs: dst.NodeDecs {
+   820  .  .  .  .  .  .  .  .  .  .  Before: None
+   821  .  .  .  .  .  .  .  .  .  .  After: None
+   822  .  .  .  .  .  .  .  .  .  }
+   823  .  .  .  .  .  .  .  .  }
+   824  .  .  .  .  .  .  .  }
+   825  .  .  .  .  .  .  }
+   826  .  .  .  .  .  .  Type: *dst.IndexListExpr {
+   827  .  .  .  .  .  .  .  X: *dst.Ident {
+   828  .  .  .  .  .  .  .  .  Name: "Some"
+   829  .  .  .  .  .  .  .  .  Obj: *(obj @ 584)
+   830  .  .  .  .  .  .  .  .  Path: ""
+   831  .  .  .  .  .  .  .  .  Decs: dst.IdentDecorations {
+   832  .  .  .  .  .  .  .  .  .  NodeDecs: dst.NodeDecs {
+   833  .  .  .  .  .  .  .  .  .  .  Before: None
+   834  .  .  .  .  .  .  .  .  .  .  After: None
+   835  .  .  .  .  .  .  .  .  .  }
+   836  .  .  .  .  .  .  .  .  }
+   837  .  .  .  .  .  .  .  }
+   838  .  .  .  .  .  .  .  Indices: []dst.Expr (len = 2) {
+   839  .  .  .  .  .  .  .  .  0: *dst.Ident {
+   840  .  .  .  .  .  .  .  .  .  Name: "T"
+   841  .  .  .  .  .  .  .  .  .  Path: ""
+   842  .  .  .  .  .  .  .  .  .  Decs: dst.IdentDecorations {
+   843  .  .  .  .  .  .  .  .  .  .  NodeDecs: dst.NodeDecs {
+   844  .  .  .  .  .  .  .  .  .  .  .  Before: None
+   845  .  .  .  .  .  .  .  .  .  .  .  After: None
+   846  .  .  .  .  .  .  .  .  .  .  }
+   847  .  .  .  .  .  .  .  .  .  }
+   848  .  .  .  .  .  .  .  .  }
+   849  .  .  .  .  .  .  .  .  1: *dst.Ident {
+   850  .  .  .  .  .  .  .  .  .  Name: "U"
+   851  .  .  .  .  .  .  .  .  .  Path: ""
+   852  .  .  .  .  .  .  .  .  .  Decs: dst.IdentDecorations {
+   853  .  .  .  .  .  .  .  .  .  .  NodeDecs: dst.NodeDecs {
+   854  .  .  .  .  .  .  .  .  .  .  .  Before: None
+   855  .  .  .  .  .  .  .  .  .  .  .  After: None
+   856  .  .  .  .  .  .  .  .  .  .  }
+   857  .  .  .  .  .  .  .  .  .  }
+   858  .  .  .  .  .  .  .  .  }
+   859  .  .  .  .  .  .  .  }
+   860  .  .  .  .  .  .  .  Decs: dst.IndexListExprDecorations {
+   861  .  .  .  .  .  .  .  .  NodeDecs: dst.NodeDecs {
+   862  .  .  .  .  .  .  .  .  .  Before: None
+   863  .  .  .  .  .  .  .  .  .  After: None
+   864  .  .  .  .  .  .  .  .  }
+   865  .  .  .  .  .  .  .  }
+   866  .  .  .  .  .  .  }
+   867  .  .  .  .  .  .  Decs: dst.FieldDecorations {
+   868  .  .  .  .  .  .  .  NodeDecs: dst.NodeDecs {
+   869  .  .  .  .  .  .  .  .  Before: None
+   870  .  .  .  .  .  .  .  .  After: None
+   871  .  .  .  .  .  .  .  }
+   872  .  .  .  .  .  .  }
+   873  .  .  .  .  .  }
+   874  .  .  .  .  }
+   875  .  .  .  .  Closing: true
+   876  .  .  .  .  Decs: dst.FieldListDecorations {
+   877  .  .  .  .  .  NodeDecs: dst.NodeDecs {
+   878  .  .  .  .  .  .  Before: None
+   879  .  .  .  .  .  .  After: None
+   880  .  .  .  .  .  }
+   881  .  .  .  .  }
+   882  .  .  .  }
+   883  .  .  .  Name: *dst.Ident {
+   884  .  .  .  .  Name: "Method1"
+   885  .  .  .  .  Path: ""
+   886  .  .  .  .  Decs: dst.IdentDecorations {
+   887  .  .  .  .  .  NodeDecs: dst.NodeDecs {
+   888  .  .  .  .  .  .  Before: None
+   889  .  .  .  .  .  .  After: None
+   890  .  .  .  .  .  }
+   891  .  .  .  .  }
+   892  .  .  .  }
+   893  .  .  .  Type: *dst.FuncType {
+   894  .  .  .  .  Func: true
+   895  .  .  .  .  Params: *dst.FieldList {
+   896  .  .  .  .  .  Opening: true
+   897  .  .  .  .  .  Closing: true
+   898  .  .  .  .  .  Decs: dst.FieldListDecorations {
+   899  .  .  .  .  .  .  NodeDecs: dst.NodeDecs {
+   900  .  .  .  .  .  .  .  Before: None
+   901  .  .  .  .  .  .  .  After: None
+   902  .  .  .  .  .  .  }
+   903  .  .  .  .  .  }
+   904  .  .  .  .  }
+   905  .  .  .  .  Decs: dst.FuncTypeDecorations {
+   906  .  .  .  .  .  NodeDecs: dst.NodeDecs {
+   907  .  .  .  .  .  .  Before: None
+   908  .  .  .  .  .  .  After: None
+   909  .  .  .  .  .  }
+   910  .  .  .  .  }
+   911  .  .  .  }
+   912  .  .  .  Body: *dst.BlockStmt {
+   913  .  .  .  .  RbraceHasNoPos: false
+   914  .  .  .  .  Decs: dst.BlockStmtDecorations {
+   915  .  .  .  .  .  NodeDecs: dst.NodeDecs {
+   916  .  .  .  .  .  .  Before: None
+   917  .  .  .  .  .  .  After: None
+   918  .  .  .  .  .  }
+   919  .  .  .  .  .  Lbrace: dst.Decorations (len = 2) {
+   920  .  .  .  .  .  .  0: "\n"
+   921  .  .  .  .  .  .  1: "// ...nothing..."
+   922  .  .  .  .  .  }
+   923  .  .  .  .  }
+   924  .  .  .  }
+   925  .  .  .  Decs: dst.FuncDeclDecorations {
+   926  .  .  .  .  NodeDecs: dst.NodeDecs {
+   927  .  .  .  .  .  Before: EmptyLine
+   928  .  .  .  .  .  Start: dst.Decorations (len = 3) {
+   929  .  .  .  .  .  .  0: "// free floating comment"
+   930  .  .  .  .  .  .  1: "\n"
+   931  .  .  .  .  .  .  2: "// doc comment"
+   932  .  .  .  .  .  }
+   933  .  .  .  .  .  End: dst.Decorations (len = 6) {
+   934  .  .  .  .  .  .  0: "\n"
+   935  .  .  .  .  .  .  1: "\n"
+   936  .  .  .  .  .  .  2: "// comment slash slash"
+   937  .  .  .  .  .  .  3: "\n"
+   938  .  .  .  .  .  .  4: "\n"
+   939  .  .  .  .  .  .  5: "/* \n\ncomment slash star\n\n*/"
+   940  .  .  .  .  .  }
+   941  .  .  .  .  .  After: None
+   942  .  .  .  .  }
+   943  .  .  .  }
+   944  .  .  }
+   945  .  }
+   946  .  Scope: *dst.Scope {
+   947  .  .  Objects: map[string]*dst.Object (len = 6) {
+   948  .  .  .  "FooBaz": *(obj @ 196)
+   949  .  .  .  "Bar": *(obj @ 253)
+   950  .  .  .  "Some": *(obj @ 584)
+   951  .  .  .  "Foo": *(obj @ 50)
+   952  .  .  .  "FooFoo": *(obj @ 98)
+   953  .  .  .  "FooBar": *(obj @ 147)
+   954  .  .  }
+   955  .  }
+   956  .  Imports: []*dst.ImportSpec (len = 1) {
+   957  .  .  0: *(obj @ 16)
+   958  .  }
+   959  .  Decs: dst.FileDecorations {
+   960  .  .  NodeDecs: dst.NodeDecs {
+   961  .  .  .  Before: None
+   962  .  .  .  After: None
+   963  .  .  }
+   964  .  }
+   965  }
+
+import "fmt"
