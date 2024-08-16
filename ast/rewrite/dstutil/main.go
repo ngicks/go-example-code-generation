@@ -182,7 +182,7 @@ func isGeneratedFor(decorations dst.GenDeclDecorations, fotTy string) bool {
 }
 
 func astVariants(param EnumParam, targetDecoration dst.GenDeclDecorations) *dst.GenDecl {
-	if len(targetDecoration.Start) > 0 {
+	if len(targetDecoration.Start) > 0 && targetDecoration.Start[len(targetDecoration.Start)-1] != "//enum:generated_for="+param.Name {
 		var i int
 		for i = len(targetDecoration.Start) - 1; i >= 0; i-- {
 			if targetDecoration.Start[i] == "\n" {
