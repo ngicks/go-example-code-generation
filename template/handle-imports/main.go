@@ -79,7 +79,7 @@ func putBuf(b *bytes.Buffer) {
 type UserInput struct {
 	// package name of generated code.
 	PackageName string
-	// Imports describes dependencies to other packages of Template text.
+	// Imports describes dependencies to other packages to which the Template text depends.
 	// Template will not use packages other than described in this field.
 	// Template may use all, some of, or even none of imported packages in the generated code.
 	//
