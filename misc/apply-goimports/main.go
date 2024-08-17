@@ -3,14 +3,11 @@ package main
 import (
 	"bytes"
 	"context"
-	"errors"
 	"fmt"
 	"io"
-	"os"
 	"os/exec"
 	"strings"
 	"sync"
-	"sync/atomic"
 )
 
 const src = `// test example package
@@ -42,7 +39,7 @@ type cmdPipeReader struct {
 	pipe     io.Reader
 	stderr   *bytes.Buffer
 	waitOnce sync.Once
-	err      atomic.Value
+	err      error
 }
 
 func newCmdPipeReader(cmd *exec.Cmd, r io.Reader) (*cmdPipeReader, error) {
@@ -65,48 +62,42 @@ func newCmdPipeReader(cmd *exec.Cmd, r io.Reader) (*cmdPipeReader, error) {
 }
 
 func (r *cmdPipeReader) Read(p []byte) (n int, err error) {
-	var firstRead bool
-	r.waitOnce.Do(func() {
-		firstRead = true
-		go func() {
-			err := r.cmd.Wait()
-			if err == nil {
-				err = io.EOF
-			} else {
-				err = fmt.Errorf("%s failed: err = %w, msg = %s", r.cmd.Path, err, r.stderr.Bytes())
-			}
-			r.err.Store(err)
-		}()
-	})
-
-	if !firstRead {
-		errValue := r.err.Load()
-		if errValue != nil {
-			return n, errValue.(error)
-		}
-	}
-
-	n, err = r.pipe.Read(p)
-	if err != io.EOF && !errors.Is(err, os.ErrClosed) {
-		return n, err
-	}
-
-	return n, nil
+	return r.pipe.Read(p)
 }
 
-func applyGoimportsPiped(ctx context.Context, r io.Reader) (io.Reader, error) {
+func (r *cmdPipeReader) Close() error {
+	r.waitOnce.Do(func() {
+		err := r.cmd.Wait()
+		if err != nil {
+			err = fmt.Errorf("%s failed: err = %w, msg = %s", r.cmd.Path, err, r.stderr.Bytes())
+		}
+		r.err = err
+	})
+	return r.err
+}
+
+func applyGoimportsPiped(ctx context.Context, r io.Reader) (io.ReadCloser, error) {
 	cmd := exec.CommandContext(ctx, "goimports")
 	return newCmdPipeReader(cmd, r)
 }
 
 func applyGoimports(ctx context.Context, r io.Reader) (*bytes.Buffer, error) {
-	r, err := applyGoimportsPiped(ctx, r)
+	p, err := applyGoimportsPiped(ctx, r)
 	if err != nil {
 		return nil, err
 	}
 
 	var buf bytes.Buffer
-	_, err = io.Copy(&buf, r)
+	_, err = io.Copy(&buf, p)
+	cErr := p.Close()
+
+	switch {
+	case err != nil && cErr != nil:
+		err = fmt.Errorf("copy err: %w, wait err: %w", err, cErr)
+	case err != nil:
+	case cErr != nil:
+		err = cErr
+	}
 
 	return &buf, err
 }
@@ -140,11 +131,12 @@ func main() {
 	readAllPrint(r)
 }
 
-func readAllPrint(r io.Reader) {
+func readAllPrint(r io.ReadCloser) {
 	var buf bytes.Buffer
 	_, err := io.Copy(&buf, r)
-	if err != nil {
-		fmt.Printf("err: %v\n", err)
+	cErr := r.Close()
+	if err != nil || cErr != nil {
+		fmt.Printf("copy err: %v, wait err: %v\n", err, cErr)
 		return
 	}
 	fmt.Printf("formatted: \n---\n%s\n---\n", buf.Bytes())
